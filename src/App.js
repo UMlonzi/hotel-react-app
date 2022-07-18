@@ -6,6 +6,8 @@ import View_of_Tented from "./pages/view_Tented/View_of_Tented"
 import View_of_Canopy from "./pages/view_Canopy/view_of_Canopy"
 import View_of_Family from "./pages/view_Family/View_of_Family"
 import Sign_in from "./pages/signin/Sign_in"
+import Bookings from "./pages/booking/Booking"
+
 function App() {
   return (
     <div>
@@ -31,6 +33,10 @@ function App() {
         <Routes>
         <Route path="Sign_in" element={<Sign_in/>}/>
         </Routes>
+        <Routes>
+        <Route path="Bookings" element={<Bookings/>}/>
+        </Routes>
+
     </BrowserRouter>
     
     </div>

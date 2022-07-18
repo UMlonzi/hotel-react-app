@@ -15,7 +15,7 @@ function Navbar() {
                 <a href='./Lodges'>Lodges</a>
             </li>
             <li>
-                <a href=''>Bookings</a>
+                <a href='./Booking'>Bookings</a>
             </li>
            
             <li>

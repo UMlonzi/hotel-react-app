@@ -3,14 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDTF8VseayG2JUEckZX_3YoCrbgcG46O0U",
-  authDomain: "todo-list-d1eee.firebaseapp.com",
-  databaseURL: "https://todo-list-d1eee-default-rtdb.firebaseio.com",
-  projectId: "todo-list-d1eee",
-  storageBucket: "todo-list-d1eee.appspot.com",
-  messagingSenderId: "1038694320871",
-  appId: "1:1038694320871:web:b8483480e7552d6e6db042"
+  apiKey: "AIzaSyCzlqf7RvDv5sJxBYspPUlok93lxW0g9KE",
+  authDomain: "hotel-app-734ef.firebaseapp.com",
+  projectId: "hotel-app-734ef",
+  storageBucket: "hotel-app-734ef.appspot.com",
+  messagingSenderId: "335976956632",
+  appId: "1:335976956632:web:465ed78426833dce5f0dad",
+  measurementId: "G-K6B3P94VFP"
 };
 
 const app = initializeApp(firebaseConfig);
