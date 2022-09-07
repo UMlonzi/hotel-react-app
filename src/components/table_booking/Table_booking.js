@@ -6,23 +6,84 @@ import { useNavigate } from "react-router-dom";
 // import { faCalendarDays, faPerson } from '@fortawesome/fontawesome-free-solid'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
+// import Bookingtable from './Bookingtable'
+import { useState } from 'react';
+import { getDatabase, ref, set } from "firebase/database";
+
+
 
 const Table_booking = (props) => {
   const navigate = useNavigate();
-
+  const [valid, setvalid] = useState(true)
+      const [hide, sethide] = useState(true)
+      const handleSubmit = (e) => {
+          e.preventDefault();
+          const book_date = document.getElementById('book-date');
+          const book_time = document.getElementById('book-time');
+          
+          const leave_date = document.getElementById('leave-date');
+          const leave_time = document.getElementById('leave-time');
+  
+          if(!book_date.value || !book_time.value || !leave_date.value || !leave_time.value){
+              alert('Please fill all the fields');
+          }else{
+              writeUserData();
+          function writeUserData() {
+              const db = getDatabase();
+              set(ref(db, 'data/'), {
+              bookingdate: book_date.value,
+              bookingtime: book_time.value,
+              leave_date: leave_date.value,
+              leave_time: leave_time.value,
+              });
+          }
+              alert('Your booking has been made');
+              const BookPageDiv = document.querySelector('.box');
+              const container = document.querySelector('.container');
+              setvalid(!valid + BookPageDiv.classList.add("show"));
+              sethide(!hide + container.classList.add("hide"));
+          }
+      }
     return (
         <>
         <div className='backgroundcolour2'>
             <div className='tablecolour'>
           <div className='headerSearch'>
-            <button onClick={() => navigate("/Sign_in")}   className='buttonYourStay'>BOOK YOUR STAY</button> 
+          <div className="container">
+       <div className="content">
+         <div className="form2">
+          <div className="txt">Date & Time you would like to Stay</div>
+          <form className='form1' action="" onSubmit={handleSubmit}>
+             <div className="inputData">
+               <input type="date" name="" id="book-date"/>
+            </div>
+           <div className="inputData">
+              <input type="time" name="" id="book-time" />
+            </div>
+            </form>
+            <form>
+            <div className="txt2">Date & Time you would like to leave</div>
+            <div className="inputData">
+               <input type="date" name="" id="leave-date" />
+            </div>
+             <div className="inputData">
+              <input type="time" name="" id="leave-time" />
+            </div>
+             <div className="book">
+               <button type="submit">Book Your Stay</button>
+           </div>
+          </form>
+          </div>
+          </div>
+</div>
+            {/* <button onClick={() => navigate("/Sign_in")}   className='buttonYourStay'>BOOK YOUR STAY</button> 
             <input type="text" placeholder="First Name & Last Name" className="headerNameInput" />
            
             <span className='HeaderSearchText'>date to date</span>
             <input type="text" placeholder="First Name & Last Name" className="headerNameInput" />
           
-            <span className='HeaderSearchText'>2 adults 2 children 1 room</span>
-            
+            <span className='HeaderSearchText'>2 adults 2 children 1 room</span> */}
+            {/* < Bookingtable /> */}
             </div>
             
             <h3>Enjoy wild Africa in luxury <br></br>at Mthimkhulu Safari Lodges</h3>
